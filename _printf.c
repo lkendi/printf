@@ -37,9 +37,9 @@ void print_str(int *char_count, va_list args_list)
 
 void print_integer(int *char_count, va_list args_list)
 {
-	int n, i = 0;
+	int n, i = 0, digits;
 	int temp;
-	char buffer[12];
+	char *buffer;
 
 	n = va_arg(args_list, int);
 	if (n < 0)
@@ -51,14 +51,22 @@ void print_integer(int *char_count, va_list args_list)
 	temp = n;
 	if (n == 0)
 	{
+		buffer = malloc(1);
 		buffer[i++] = '0';
 	}
 	else
 	{
+		digits = 0;
 		while (temp != 0)
 		{
-			buffer[i++] = (temp % 10) + '0';
+			digits++;
 			temp /= 10;
+		}
+		buffer = malloc(digits + 1);
+		while (n != 0)
+		{
+			buffer[i++] = (n % 10) + '0';
+			n /= 10;
 		}
 	}
 	while (i > 0)
@@ -66,7 +74,9 @@ void print_integer(int *char_count, va_list args_list)
 		write(1, &buffer[--i], 1);
 		(*char_count)++;
 	}
+	free(buffer);
 }
+
 
 /**
 * _printf - produces output according to a format
