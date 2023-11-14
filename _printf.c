@@ -37,7 +37,7 @@ void print_str(int *char_count, va_list args_list)
 
 void print_integer(int *char_count, va_list args_list)
 {
-	int n, digits, i;
+	int n, i = 0;
 	int temp;
 	char buffer[12];
 
@@ -49,28 +49,24 @@ void print_integer(int *char_count, va_list args_list)
 		(*char_count)++;
 	}
 	temp = n;
-	while (temp != 0)
-	{
-		temp /= 10;
-		digits++;
-	}
 	if (n == 0)
 	{
-		write(1, "0", 1);
-		(*char_count)++;
+		buffer[i++] = '0';
 	}
 	else
 	{
-		for (i = 0; n != 0; i++)
+		while (temp != 0)
 		{
-			buffer[i] = n % 10 + '0';
-			n /= 10;
+			buffer[i++] = (temp % 10) + '0';
+			temp /= 10;
 		}
-		write(1, buffer, i);
-		(*char_count) += i;
+	}
+	while (i > 0)
+	{
+		write(1, &buffer[--i], 1);
+		(*char_count)++;
 	}
 }
-
 
 /**
 * _printf - produces output according to a format
@@ -121,4 +117,3 @@ int _printf(const char *format, ...)
 	va_end(args_list);
 	return (char_count);
 }
-
