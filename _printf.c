@@ -1,4 +1,15 @@
 #include "main.h"
+
+/**
+ * print_integer - prints integers for specifier i and d
+ * @char_count:num of printed chars
+ * @args_list:list opf args
+*/
+void print_integer(int *char_count, va_list args_list)
+{
+    /*code*/
+}
+
 /**
 * _printf - produces output according to a format
 * @format: the format specifiers
