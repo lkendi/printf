@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
 					break;
 				case 's':
 					s = va_arg(args_list, char*);
-					write(1, s, strlen(s);
+					write(1, s, strlen(s));
 					char_count += strlen(s);
 					break;
 			}
