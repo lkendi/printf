@@ -56,12 +56,10 @@ int _printf(const char *format, ...)
 					char_count += strlen(s);
 					break;
 				case 'd':
-					/*code*/
+					print_integer(&char_count, args_list);
 					break;
 				case 'i':
-				    d = va_arg(args_list, int);
-				    write(1, &d, sizeof(int));
-				    char_count += sizeof(int);
+				    print_integer(&char_count, args_list);
 				    break;
 			}
 		}
