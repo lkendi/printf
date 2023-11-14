@@ -1,4 +1,15 @@
 #include "main.h"
+
+/**
+ * print_integer - prints integers for specifier i and d
+ * @char_count:num of printed chars
+ * @args_list:list opf args
+*/
+void print_integer(int *char_count, va_list args_list)
+{
+    /*code*/
+}
+
 /**
 * _printf - produces output according to a format
 * @format: the format specifiers
@@ -6,8 +17,14 @@
 */
 int _printf(const char *format, ...)
 {
-	int d, char_count = 0;
-	char c, *s;
+	int char_count = 0;
+
+	char c;
+
+	char *s;
+
+	int d;
+
 	va_list args_list;
 
 	if (format == NULL)
@@ -39,12 +56,10 @@ int _printf(const char *format, ...)
 					char_count += strlen(s);
 					break;
 				case 'd':
-					/*code*/
+					print_integer(&char_count, args_list);
 					break;
 				case 'i':
-				    d = va_arg(args_list, int);
-				    write(1, &d, sizeof(int));
-				    char_count += sizeof(int);
+				    print_integer(&char_count, args_list);
 				    break;
 			}
 		}

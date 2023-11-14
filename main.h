@@ -7,8 +7,8 @@
 #include <string.h>
 
 int _printf(const char *format, ...);
-int print_char(int c);
-int print_string(char *s);
-int print_int(int n);
+int print_char(int *char_count, va_list args_list);
+int print_string(int *char_count, va_list args_list);
+void print_integer(int *char_count, va_list args_list);
 
 #endif
