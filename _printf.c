@@ -48,10 +48,10 @@ int _printf(const char *format, ...)
 					break;
 				case 'd':
 				case 'i':
-				    d = va_arg(args_list, int);
+				    	d = va_arg(args_list, int);
 					write(1, &d, sizeof(int));
-				    char_count += sizeof(int);
-				    break;
+				    	char_count += sizeof(int);
+				    	break;
 			}
 		break;
 	default:
