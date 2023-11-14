@@ -1,24 +1,19 @@
 #include "main.h"
-
 /**
 * _printf - produces output according to a format
 * @format: the format specifiers
 * Return: number of printed characters excluding '\0'
 */
-
 int _printf(const char *format, ...)
 {
-	int char_count = 0;
-	char c;
-	char *s;
-    	int d;
+	int d, char_count = 0;
+	char c, *s;
 	va_list args_list;
 
 	if (format == NULL)
 	{
 		return (-1);
 	}
-
 	va_start(args_list, format);
 	while (*format)
 	{
