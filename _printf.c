@@ -21,20 +21,20 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			if (format == '%')
+			if (*format == '%')
 			{
 				write(1, format, 1);
 				char_count++;
 			}
-			if (format == 'c')
+			if (*format == 'c')
 			{
 				print_char(&char_count, args_list);
 			}
-			if (format == 's')
+			if (*format == 's')
 			{
 				print_str(&char_count, args_list);
 			}
-			if (format == 'd' || format == 'i')
+			if (*format == 'd' || *format == 'i')
 			{
 				print_integer(&char_count, args_list);
 			}
