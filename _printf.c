@@ -10,7 +10,9 @@ int _printf(const char *format, ...)
 {
 	int char_count = 0;
 
-	char c, *string;
+	char c;
+
+	char *s;
 
 	va_list args_list;
 
@@ -38,7 +40,9 @@ int _printf(const char *format, ...)
 					char_count++;
 					break;
 				case 's':
-					/*code*/
+					s = va_arg(args_list, char*);
+					write(1, s, strlen(s);
+					char_count += strlen(s);
 					break;
 			}
 		break;
