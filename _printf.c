@@ -8,11 +8,11 @@
 
 void print_char(int *char_count, va_list args_list)
 {
-    char c;
+	char c;
 
-    c = va_arg(args_list, int);
-    write(1, &c, 1);
-    (*char_count)++;
+	c = va_arg(args_list, int);
+	write(1, &c, 1);
+	(*char_count)++;
 }
 
 /**
@@ -41,9 +41,8 @@ void print_integer(int *char_count, va_list args_list)
 	int n, digits, i;
 	int temp;
 	char buffer[12];
-	
+
 	n = va_arg(args_list, int);
-	
 	if (n < 0)
 	{
 		write(1, "-", 1);
@@ -95,24 +94,22 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			switch (*format)
+			if (format == '%')
 			{
-				case '%':
-					write(1, format, 1);
-					char_count++;
-					break;
-				case 'c':
-					print_char(&char_count, args_list);
-					break;
-				case 's':
-					print_str(&char_count, args_list);
-					break;
-				case 'd':
-					print_integer(&char_count, args_list);
-					break;
-				case 'i':
-					print_integer(&char_count, args_list);
-				    break;
+				write(1, format, 1);
+				char_count++;
+			}
+			if (format == 'c')
+			{
+				print_char(&char_count, args_list);
+			}
+			if (format == 's')
+			{
+				print_str(&char_count, args_list);
+			}
+			if (format == 'd' || format == 'i')
+			{
+				print_integer(&char_count, args_list);
 			}
 		}
 		else
