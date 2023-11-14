@@ -1,5 +1,29 @@
 #include "main.h"
 
+
+/**
+ * print_char - prints integers for specifier c
+ * @char_count:num of printed chars
+ * @args_list:list of args
+*/
+
+void print_char(int *char_count, va_list args_list)
+{
+    /*code for char*/
+}
+
+
+/**
+ * print_str - prints integers for specifier s
+ * @char_count:num of printed chars
+ * @args_list:list of args
+*/
+void print_str(int *char_count, va_list args_list)
+{
+    /*code*/
+}
+
+
 /**
  * print_integer - prints integers for specifier i and d
  * @char_count:num of printed chars
@@ -9,6 +33,9 @@ void print_integer(int *char_count, va_list args_list)
 {
     /*code*/
 }
+
+
+
 
 /**
 * _printf - produces output according to a format
