@@ -14,6 +14,8 @@ int _printf(const char *format, ...)
 
 	char *s;
 
+    int d;
+
 	va_list args_list;
 
 	if (format == NULL)
@@ -44,6 +46,12 @@ int _printf(const char *format, ...)
 					write(1, s, strlen(s));
 					char_count += strlen(s);
 					break;
+				case 'd':
+				case 'i':
+				    d = va_arg(args_list, int);
+					write(1, &d, sizeof(int));
+				    char_count += sizeof(int);
+				    break;
 			}
 		break;
 	default:
