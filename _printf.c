@@ -39,5 +39,6 @@ int _printf(const char *format, ...)
 		char_count++;
 		break;
 	}
+	return(char_count);
 }
 
