@@ -9,24 +9,21 @@
 int _printf(const char *format, ...)
 {
 	int char_count = 0;
-
 	char c;
-
 	char *s;
-
-    int d;
-
+    	int d;
 	va_list args_list;
 
 	if (format == NULL)
 	{
-		exit(1);
+		return (-1);
 	}
 
 	va_start(args_list, format);
-	switch (*format)
+	while (*format)
 	{
-		case '%':
+		if (*format == '%')
+		{
 			format++;
 			switch (*format)
 			{
@@ -47,17 +44,21 @@ int _printf(const char *format, ...)
 					char_count += strlen(s);
 					break;
 				case 'd':
+					/*code*/
+					break;
 				case 'i':
 				    d = va_arg(args_list, int);
-					write(1, &d, sizeof(int));
+				    write(1, &d, sizeof(int));
 				    char_count += sizeof(int);
 				    break;
 			}
-		break;
-	default:
-		write(1, format, 1);
-		char_count++;
-		break;
+		}
+		else
+		{
+			write(1, format, 1);
+			char_count++;
+		}
+		format++;
 	}
 	va_end(args_list);
 	return (char_count);
