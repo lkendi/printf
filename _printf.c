@@ -1,15 +1,17 @@
 #include "main.h"
 
 /**
- * _printf - produces output according to a format
- * @format: the format specifiers
- * Return: number of printed characters excluding '\0'
- */
+* _printf - produces output according to a format
+* @format: the format specifiers
+* Return: number of printed characters excluding '\0'
+*/
 
 int _printf(const char *format, ...)
 {
 	int char_count = 0;
+
 	char c, *string;
+
 	va_list args_list;
 
 	if (format == NULL)
@@ -45,6 +47,7 @@ int _printf(const char *format, ...)
 		char_count++;
 		break;
 	}
-	return(char_count);
+	va_end(args_list);
+	return (char_count);
 }
 
