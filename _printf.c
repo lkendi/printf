@@ -6,8 +6,14 @@
 */
 int _printf(const char *format, ...)
 {
-	int d, char_count = 0;
-	char c, *s;
+	int char_count = 0;
+
+	char c;
+
+	char *s;
+
+	int d;
+
 	va_list args_list;
 
 	if (format == NULL)
