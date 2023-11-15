@@ -46,14 +46,14 @@ void print_str(int *char_count, va_list args_list)
 void print_integer(int *char_count, va_list args_list)
 {
 	int n, i = 0;
-	long long temp;
+	long temp;
 	char buffer[60];
 
 	n = va_arg(args_list, int);
 	if (n < 0)
 	{
 		write(1, "-", 1);
-		temp = -((long long) n);
+		temp = -((long) n);
 		(*char_count)++;
 	}
 	else
