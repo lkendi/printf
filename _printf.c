@@ -46,17 +46,20 @@ void print_str(int *char_count, va_list args_list)
 void print_integer(int *char_count, va_list args_list)
 {
 	int n, i = 0;
-	int temp;
+	long long temp;
 	char buffer[60];
 
 	n = va_arg(args_list, int);
 	if (n < 0)
 	{
 		write(1, "-", 1);
-		n *= -1;
+		temp = -((long long) n);
 		(*char_count)++;
 	}
-	temp = n;
+	else
+	{
+		temp = n;
+	}
 	if (n == 0)
 	{
 		buffer[i++] = '0';
