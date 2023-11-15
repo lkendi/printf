@@ -27,8 +27,8 @@ void print_str(int *char_count, va_list args_list)
 	s = va_arg(args_list, char*);
 	if (s == NULL)
 	{
-		write(1, "(nil)", 5);
-		*char_count += 5;
+		write(1, "(null)", 6);
+		*char_count += 6;
 	}
 	else
 	{
